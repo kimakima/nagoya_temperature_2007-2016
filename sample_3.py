@@ -82,6 +82,7 @@ ax.axvline(datetime.datetime(2016,8,7), color='y', linestyle='-', linewidth=0.5)
 ax.axvline(datetime.datetime(2016,9,21), color='y', linestyle='-', linewidth=0.5)
 ax.axvline(datetime.datetime(2016,11,7), color='b', linestyle='-', linewidth=0.5)
 ax.axvline(datetime.datetime(2016,12,21), color='b', linestyle='-', linewidth=0.5)
+
 loc, label = plt.xticks()
 plt.setp(label, rotation=90)
 plt.show()
