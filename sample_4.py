@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import csv
 import datetime
 import re
@@ -69,20 +71,53 @@ plt.title("Nagoya 2006-2015")
 plt.xlabel("date [mm-dd]")
 plt.ylabel("temperature [degc]")
 
+plt.xlim(datetime.datetime(2015,12,15),datetime.datetime(2017,1,15))
+
 ax.plot(x_date, a,'o-')
 
 months = MonthLocator(range(1,13), bymonthday=1,interval=1)
 ax.xaxis.set_major_locator(months)
-ax.grid(which='major', color='lightgrey', linestyle=':')
+ax.grid(which='major', color='grey', linestyle='-')
 
-ax.axvline(datetime.datetime(2016,2,4), color='g', linestyle='-', linewidth=0.5)
-ax.axvline(datetime.datetime(2016,3,21), color='g', linestyle='-', linewidth=0.5)
-ax.axvline(datetime.datetime(2016,5,5), color='r', linestyle='-', linewidth=0.5)
-ax.axvline(datetime.datetime(2016,6,21), color='r', linestyle='-', linewidth=0.5)
-ax.axvline(datetime.datetime(2016,8,7), color='y', linestyle='-', linewidth=0.5)
-ax.axvline(datetime.datetime(2016,9,21), color='y', linestyle='-', linewidth=0.5)
-ax.axvline(datetime.datetime(2016,11,7), color='b', linestyle='-', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 3,21), color='g', linestyle='-', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 4, 5), color='g', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 4,20), color='g', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 5, 5), color='g', linestyle='-', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 5,21), color='g', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 6, 6), color='g', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 6,21), color='r', linestyle='-', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 7, 7), color='r', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 7,23), color='r', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 8, 7), color='r', linestyle='-', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 8,23), color='r', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 9, 8), color='r', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 9,23), color='y', linestyle='-', linewidth=0.5)
+ax.axvline(datetime.datetime(2016,10, 8), color='y', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016,10,23), color='y', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016,11, 7), color='y', linestyle='-', linewidth=0.5)
+ax.axvline(datetime.datetime(2016,11,22), color='y', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016,12, 7), color='y', linestyle=':', linewidth=0.5)
 ax.axvline(datetime.datetime(2016,12,21), color='b', linestyle='-', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 1, 5), color='b', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 1,20), color='b', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 2, 4), color='b', linestyle='-', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 2,19), color='b', linestyle=':', linewidth=0.5)
+ax.axvline(datetime.datetime(2016, 3, 6), color='b', linestyle=':', linewidth=0.5)
+
+ax.axvspan(datetime.datetime(2016,1,1),datetime.datetime(2016,3,21), color='b', alpha=0.125)
+ax.axvspan(datetime.datetime(2016,3,21),datetime.datetime(2016,6,21), color='g', alpha=0.125)
+ax.axvspan(datetime.datetime(2016,6,21),datetime.datetime(2016,9,23), color='r', alpha=0.125)
+ax.axvspan(datetime.datetime(2016,9,23),datetime.datetime(2016,12,21), color='y', alpha=0.125)
+ax.axvspan(datetime.datetime(2016,12,21),datetime.datetime(2016,12,31), color='b', alpha=0.125)
+
+ax.text(datetime.datetime(2016, 3,21), 38, u'春分',horizontalalignment='center')
+ax.text(datetime.datetime(2016, 5, 5), 38, u'立夏',horizontalalignment='center')
+ax.text(datetime.datetime(2016, 6,21), 38, u'夏至',horizontalalignment='center')
+ax.text(datetime.datetime(2016, 8, 7), 38, u'立秋',horizontalalignment='center')
+ax.text(datetime.datetime(2016, 9,23), 38, u'秋分',horizontalalignment='center')
+ax.text(datetime.datetime(2016,11, 7), 38, u'立冬',horizontalalignment='center')
+ax.text(datetime.datetime(2016,12,21), 38, u'冬至',horizontalalignment='center')
+ax.text(datetime.datetime(2016, 2, 4), 38, u'立春',horizontalalignment='center')
 
 loc, label = plt.xticks()
 plt.setp(label, rotation=90)
