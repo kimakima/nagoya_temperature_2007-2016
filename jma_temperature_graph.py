@@ -96,7 +96,7 @@ print ary2d_avg_temperature[:, 3], len(ary2d_avg_temperature[:, 3])
 for (a, b) in zip(x_date, ary2d_avg_temperature[:, 3]):
 	print a,b
 
-fig = plt.figure()
+#fig = plt.figure(figsize=(16,9))
 ax = fig.add_subplot(111)
 dateFmt = matplotlib.dates.DateFormatter('%m-%d')
 ax.xaxis.set_major_formatter(dateFmt)
@@ -164,4 +164,5 @@ for (x_date_data,li_24season) in zip(x_date,li_24seasons):
 
 loc, label = plt.xticks()
 plt.setp(label, rotation=90)
+fig.tight_layout()
 plt.show()
